@@ -74,4 +74,9 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      "@": path.appSrc,
+    },
+  },
 };
