@@ -5,6 +5,9 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
+  cache: {
+    type: "filesystem",//使用文件缓存
+  },
   plugins: [
     // 生成html，自动引入所有bundle
     new HtmlWebpackPlugin({
