@@ -10,8 +10,13 @@ module.exports = merge(
       path: resolveApp("dist"),
       clean: true,
     },
-    devServer: {},
+    devServer: {
+      static: {
+        directory: resolveApp("dist"),
+      },
+      compress: true,
+      port: 8888,
+    },
   },
   common
 );
-
