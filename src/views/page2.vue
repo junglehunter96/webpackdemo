@@ -1,9 +1,5 @@
 <template>
 	<div>
-	page2
+		page2
 	</div>
 </template>
-
-<script setup>
-
-</script>

@@ -11,5 +11,4 @@ module.exports = {
   appHtml: resolveApp("public/index.html"),
   appSrc: resolveApp("src"),
   appDist: resolveApp("dist"),
-  appTsConfig: resolveApp("tsconfig.json"),
 };

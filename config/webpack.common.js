@@ -5,8 +5,14 @@ module.exports = {
   entry: {
     index: "./src/index.js",
   },
+  resolve: {
+    alias: {
+      "@": path.appSrc,
+      //...按需添加
+    },
+  },
   cache: {
-    type: "filesystem",//使用文件缓存
+    type: "filesystem", //使用文件缓存
   },
   plugins: [
     // 生成html，自动引入所有bundle
@@ -15,8 +21,7 @@ module.exports = {
       filename: "index.html",
       template: path.resolveApp("./index.html"),
     }),
-    // 提取vue模板
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -27,6 +32,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
+        exclude: /node_modules/,
         loader: "vue-loader",
       },
       // 图片
@@ -41,7 +47,6 @@ module.exports = {
         include: path.appSrc,
         type: "asset/resource",
       },
-      // 加载css
       {
         test: /\.css$/,
         include: path.appSrc,
@@ -76,10 +81,5 @@ module.exports = {
         ],
       },
     ],
-  },
-  resolve: {
-    alias: {
-      "@": path.appSrc,
-    },
   },
 };
