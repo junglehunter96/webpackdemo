@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("./path.js");
-const { VueLoaderPlugin } = require("vue-loader");
 module.exports = {
   entry: {
     index: "./src/index.js",
@@ -21,7 +20,6 @@ module.exports = {
       filename: "index.html",
       template: path.resolveApp("./index.html"),
     }),
-    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -29,11 +27,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
-      },
-      {
-        test: /\.vue$/,
-        exclude: /node_modules/,
-        loader: "vue-loader",
       },
       // 图片
       {
