@@ -60,7 +60,7 @@ module.exports = {
             options: {
               // 开启 CSS modules 特性
               modules: false,
-              importLoaders: 1,
+              importLoaders: 2,
               // 0 => no loaders (default);
               // 1 => postcss-loader;
               // 2 => postcss-loader, sass-loader

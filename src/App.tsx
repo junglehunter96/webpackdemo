@@ -1,11 +1,15 @@
-import * as React from 'react';
-
-
+import * as React from "react";
+import ReactDom from "react-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+function Index(): JSX.Element {
+  return <>App</>;
+}
 export default function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />}></Route>
+      </Routes>
+    </Router>
   );
 }
