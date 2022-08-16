@@ -2,13 +2,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("./path.js");
 module.exports = {
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.tsx",
   },
   resolve: {
     alias: {
       "@": path.appSrc,
-      //...按需添加
     },
+    extensions: [".tsx", ".ts", ".js"],
   },
   cache: {
     type: "filesystem", //使用文件缓存
@@ -24,9 +24,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
+        test: /\.(js|ts|jsx|tsx)$/,
+        include: path.appSrc,
+        use: [
+          {
+            loader: "esbuild-loader",
+            options: {
+              loader: "tsx",
+              target: "es2015",
+            },
+          },
+        ],
       },
       // 图片
       {
